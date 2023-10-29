@@ -9,8 +9,7 @@ Next, please, copy the bot's HTTP API token, so that to use it further.
 
 ## Environment Setup --- docker
 ```bash
-chmod u+x docker_build.sh
-chmod u+x docker_run.sh 
+chmod u+x docker_build.sh docker_run.sh 
 ./build.sh
 ./run.sh
 ```
