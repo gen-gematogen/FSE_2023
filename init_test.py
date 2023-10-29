@@ -56,8 +56,9 @@ def test_image_generation():
             difference = cv2.subtract(true_img_cv2, state_img_cv2)
             b, g, r = cv2.split(difference)
             if cv2.countNonZero(b) == 0 and cv2.countNonZero(g) == 0 and cv2.countNonZero(r) == 0:
+                os.remove("test_images/test_images_generated_state.png")
                 return True
+        os.remove("test_images/test_images_generated_state.png")
         return False
     
     assert image_difference() == True
-    os.remove("test_images/test_images_generated_state.png")
