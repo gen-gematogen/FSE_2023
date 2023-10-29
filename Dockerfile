@@ -18,7 +18,7 @@ RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 # Grant execute permissions to test.sh
-RUN chmod +x /app/test_project.sh /app/build_project.sh
+RUN chmod +x /app/project_test.sh /app/project_build.sh
 
 # Activate the virtual environment and install packages
 RUN pip install --upgrade pip && pip install -r requirements.txt
