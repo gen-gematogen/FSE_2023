@@ -147,3 +147,15 @@ def test_switch_turn():
     turn_invalid_1 = desk.get_turn()
 
     assert (turn_0 != turn_1) and (turn_invalid_0 == turn_invalid_1)
+
+def test_encoder_decoder():
+    position_valid = (1, 1)
+    position_invalid = (-10, 11)
+    
+    encoded_valid = encode_pos(*position_valid)
+    encoded_invalid = encode_pos(*position_invalid)
+
+    decoded_valid = decode_pos(encoded_valid)
+    decoded_invalid = decode_pos(encoded_invalid)
+
+    assert (position_valid == decoded_valid) and (encoded_invalid == 'INVALID_POSITION') and (decoded_invalid == (None, None))
