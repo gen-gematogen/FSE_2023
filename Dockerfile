@@ -23,4 +23,4 @@ RUN chmod +x /app/test.sh
 RUN . venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt
 
 # Command to run the checker game
-CMD ["./venv/bin/python3", "main.py"]
+# CMD ["./venv/bin/python3", "main.py - "]
