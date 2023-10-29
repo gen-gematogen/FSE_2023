@@ -111,7 +111,7 @@ def init_telegram_bot(bot):
 
 
 if __name__ == "__main__":
-    API_TOKEN = ""  # YOUR API TOKEN HERE
+    API_TOKEN = sys.argv[1]  # YOUR API TOKEN HERE
     bot = TeleBot(API_TOKEN, parse_mode=None)
     init_telegram_bot(bot)
     print("Bot started")
