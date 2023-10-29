@@ -22,7 +22,7 @@ sh test.sh
 And it will run all the tests.
 ## Building the Project
 ```bash
-docker run -it checker_game:v1 python3 main.py - [API tg bot]
+docker run -it checker_game:v1 python3 main.py [Tg bot Token]
 ```
 ## Using the bot
 Once the project is set up and connection is established, please, go to your Telegram Bot and set it up by typing `\start` in the input field.
