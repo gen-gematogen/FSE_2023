@@ -1,4 +1,12 @@
 from utils.bot import *
+import sys
+
+if len(sys.argv) > 1:
+    argument = sys.argv[1]
+    print(f"Received argument: {argument}")
+else:
+    print("No argument provided.")
+
 
 desk = Desk()
 
@@ -111,7 +119,7 @@ def init_telegram_bot(bot):
 
 
 if __name__ == "__main__":
-    API_TOKEN = ""  # YOUR API TOKEN HERE
+    API_TOKEN = sys.argv[1]  # YOUR API TOKEN HERE
     bot = TeleBot(API_TOKEN, parse_mode=None)
     init_telegram_bot(bot)
     print("Bot started")
