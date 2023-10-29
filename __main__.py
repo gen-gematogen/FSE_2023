@@ -8,7 +8,7 @@ cur_help_message = \
 The only command is a /restart
 """
 
-API_TOKEN = "6879463439:AAHJsBLzoegnoLeDSydzdU18DfRScoE-X2g"
+API_TOKEN = "" # YOUR API TOKEN HERE
 bot = TeleBot(API_TOKEN, parse_mode=None)
 
 
