@@ -79,6 +79,8 @@ class Desk:
         return self._desk[x][y]
 
     def _get_available_moves_with_vector(self, x_self, y_self, move_x, move_y, self_state):
+        if self_state == CellState.NOTHING or self_state == CellState.OUT_OF_BOARD:
+            return False, []
         vector_len = 1 if self_state == CellState.BLACK or CellState.WHITE else 8
         x_max_vector_len = abs(min(max(0, x_self + move_x * 8), 7) - x_self)
         y_max_vector_len = abs(min(max(0, y_self + move_y * 8), 7) - y_self)
@@ -183,16 +185,24 @@ class Desk:
     def change_turn(self):
         if self._turn == CellState.WHITE:
             self._turn = CellState.BLACK
-        else:
+        elif self._turn == CellState.BLACK:
             self._turn = CellState.WHITE
+        else:
+            pass
 
 
 def encode_pos(x,y):
+    if x > 7 or x < 0 or y > 7 or y < 0:
+        return 'INVALID_POSITION'
+    
     labels = "ABCDEFGH"
     return labels[y] + str(x + 1)
 
 
 def decode_pos(selected_pos):
+    if selected_pos == 'INVALID_POSITION':
+        return None, None
+    
     labels = "ABCDEFGH"
     label2idx = {label: idx for idx, label in enumerate(labels)}
     x_pos = int(selected_pos[1]) - 1
