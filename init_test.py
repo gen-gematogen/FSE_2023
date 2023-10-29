@@ -4,6 +4,7 @@ import cv2
 
 from utils.test_utils import *
 from main import *
+from utils.bot import *
 
 def test_bot_start():
     bot = TestBot()
@@ -25,6 +26,36 @@ def test_bot_restart():
     
     assert bot.get_last_message() == ('test', "Variants: ['A3', 'C3', 'E3', 'G3']")
     shutil.rmtree("user_data/test")
+    
+def test_bot_general_moves():
+    bot = TestBot()
+    init_telegram_bot(bot)
+    
+    chat_id = 'test'
+    
+    desk = Desk()
+    desk._desk = np.array([[CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING],
+                [CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING],
+                [CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING],
+                [CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.WHITE, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING],
+                [CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.BLACK, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING],
+                [CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING],
+                [CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING],
+                [CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING]]).T
+
+    state_img = desk.create_image_from_desk_state()
+    os.makedirs(f"user_data/{chat_id}")
+    state_img.save(f"user_data/{chat_id}/desk.png")
+    save_state(chat_id, desk, True, (3, 3))
+    
+    #desk, is_move_stage, attack_pos = get_state(chat_id)
+    
+    msg = Message(chat_id, "F6")
+    general_moves(bot, msg)
+    
+    last_msg = bot.get_last_message()
+    
+    assert last_msg == (chat_id, 'White side won, if you want play more, press /restart')
 
 
 def test_desk_initialization():
