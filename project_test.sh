@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pytest init_test.py
+pytest --verbose init_test.py
