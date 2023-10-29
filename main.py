@@ -1,4 +1,11 @@
 from utils.bot import *
+import sys
+
+if len(sys.argv) > 1:
+    argument = sys.argv[1]
+    print(f"Received argument: {argument}")
+else:
+    print("No argument provided.")
 
 desk = Desk()
 
