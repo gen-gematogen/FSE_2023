@@ -16,6 +16,9 @@ COPY . /app/
 # Create a virtual environment
 RUN python3 -m venv venv
 
+# Grant execute permissions to test.sh
+RUN chmod +x /app/test.sh
+
 # Activate the virtual environment and install packages
 RUN . venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt
 

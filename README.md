@@ -7,14 +7,11 @@ In order to do so, please, follow [this link](https://t.me/BotFather) and create
 
 Next, please, copy the bot's HTTP API token, so that to use it further.
 
-## Environment Setup
+## Environment Setup --- docker
 ```bash
-yum -y install python3
-python3 -m pip install --upgrade pip
-python3 -m pip install --prefer-binary -r requirements.txt
-```
-## Docker
+sh build.sh
 
+```
 ## Scripts for Testing
 
 ## Building the Project
