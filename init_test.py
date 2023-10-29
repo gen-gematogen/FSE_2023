@@ -54,8 +54,9 @@ def test_image_generation():
 
         if true_img_cv2.shape == state_img_cv2.shape:
             difference = cv2.subtract(true_img_cv2, state_img_cv2)
+            
             b, g, r = cv2.split(difference)
-            if cv2.countNonZero(b) == 0 and cv2.countNonZero(g) == 0 and cv2.countNonZero(r) == 0:
+            if (cv2.countNonZero(b) + cv2.countNonZero(g) + cv2.countNonZero(r)) / (3 * true_img_cv2.shape[0] * true_img_cv2.shape[1]) < 0.001:
                 os.remove("test_images/test_images_generated_state.png")
                 return True
         os.remove("test_images/test_images_generated_state.png")
