@@ -47,7 +47,7 @@ def test_image_generation():
                     [CellState.WHITE, CellState.NOTHING, CellState.WHITE, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.BLACK, CellState.NOTHING],
                     [CellState.NOTHING, CellState.WHITE, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.BLACK, CellState.NOTHING, CellState.BLACK]]).T
         state_img = desk.create_image_from_desk_state()
-        state_img.save("images/test_images_generated_state.png")
+        state_img.save("test_images/test_images_generated_state.png")
 
         true_img_cv2 = cv2.imread("test_images/test_images_true_state.png")
         state_img_cv2 = cv2.imread("test_images/test_images_generated_state.png")
