@@ -1,15 +1,21 @@
 class Chat:
+    __test__ = False
+    
     def __init__(self, id):
         self.id = id
 
 
 class Message:
+    __test__ = False
+    
     def __init__(self, id, text):
         self.chat = Chat(id)
         self.text = text
 
 
 class TestBot:
+    __test__ = False
+    
     def __init__(self):
         self.message_buffer = []
 
