@@ -7,6 +7,7 @@ if len(sys.argv) > 1:
 else:
     print("No argument provided.")
 
+
 desk = Desk()
 
 cur_help_message = \
