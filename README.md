@@ -15,7 +15,11 @@ sh build.sh
 sh run.sh
 ```
 ## Scripts for Testing
-
+To run the tests in the docker container, simply write:
+```bash
+sh test.sh
+```
+And it will run all the tests.
 ## Building the Project
 
 ## Using the bot
