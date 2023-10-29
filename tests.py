@@ -5,7 +5,7 @@ import cv2
 from utils.test_utils import *
 from main import *
 
-def bot_response_test():
+def test_bot_response():
     bot = TestBot()
     init_telegram_bot(bot)
     msg = Message("test", "/start")
@@ -15,7 +15,7 @@ def bot_response_test():
 
 
 
-def desk_initialization_test():
+def test_desk_initialization():
     desk = Desk()
     
     desk_state = desk._desk
@@ -35,7 +35,7 @@ def desk_initialization_test():
     assert np.all(a == b) == True
 
 
-def image_generation_test():
+def test_image_generation():
     def image_difference():
         desk = Desk()
         desk._desk = np.array([[CellState.WHITE, CellState.NOTHING, CellState.WHITE, CellState.NOTHING, CellState.NOTHING, CellState.NOTHING, CellState.BLACK, CellState.NOTHING],
