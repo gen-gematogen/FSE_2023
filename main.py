@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from utils.bot import *
 import sys
 
